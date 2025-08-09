@@ -1,0 +1,17 @@
+[Unit]
+Description=Ecowitt Weather Station Daemon
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/ecowitt2mqtt
+WorkingDirectory=/usr/local/bin
+StandardOutput=inherit
+StandardError=inherit
+#WatchdogSec=10s
+Restart=always
+RestartSec=10s
+User=nobody
+
+[Install]
+WantedBy=multi-user.target
